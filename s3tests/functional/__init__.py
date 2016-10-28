@@ -91,7 +91,7 @@ def nuke_prefixed_buckets_on_conn(prefix, name, conn):
                             ))
                         # key.set_canned_acl('private')
                         bucket.delete_key(key.name, version_id = key.version_id)
-                    bucket.delete()
+      # bucket.delete() TEMPORARY DISABLE, since it not implemented
                     success = True
                 except boto.exception.S3ResponseError as e:
                     if e.error_code != 'AccessDenied':
